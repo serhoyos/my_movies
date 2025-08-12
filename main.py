@@ -14,6 +14,7 @@ from fastapi.responses import HTMLResponse, JSONResponse # HTMLResponse sirve pa
 
 import pandas as pd # pandas nos ayuda amanejar datos en tablas como si fueran un excel.
 import nltk # Es una librería para procesar texto y analizar palabras.
+nltk.download('punkt_tab')
 from nltk.tokenize import word_tokenize # Se utiliza para dividir un texto en palabras individuales.
 from nltk.corpus import wordnet # Nos ayuda a encontrar sinónimos de palabras.
 
@@ -49,14 +50,14 @@ def get_synonyms(word):
 
 # Creamos la aplicación FastAPI, que será el motor de nuestra API
 # Esto inicializa la API con un nombe y una versión
-app = FastAPI(title="Mi aplicación de películas", version="1.0.0")
+app = FastAPI(title="My Movies API", version="1.0.0")
 
 # cuando alguien entra a la API sin especificar nada, verá un mensaje de bienvenida.
 
 @app.get('/', tags=['Home'])
 def home():
     # cuando entremos en el navegador a http://127.0.0.1:8000/ veremos un mensaje de bienvenida
-    return HTMLResponse('<h1>Bienvenido a la API de películas</h1>')
+    return HTMLResponse('<h1>Welcome to My Movies API</h1>')
 
 # Obteniendo la lista de películas
 # Creamos una lista para obtener todas las pelícukas
